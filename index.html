@@ -1,0 +1,307 @@
+<html>
+	<head>
+		<title>random friends - netflix</title>
+		<style>
+			#root {
+				width: 100vw;
+				height: 100vh;
+
+				display: flex;
+				justify-content: center;
+			}
+			#container {
+				margin-top: 60px;
+				font-family: Arial, Helvetica, sans-serif;
+			}
+			h1 {
+				font-size: 2em;
+				margin-bottom: 30px;
+			}
+			#episode {
+				font-size: 1.8em;
+			}
+			#link {
+				font-size: 1.6em;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="root">
+			<div id="container">
+				<h1><u>Friends Netflix Episode Randomizer</u></h1>
+				<h2 id="episode"></h2>
+				<a href="#" target="_blank" id="link"></a>
+			</div>
+		</div>
+
+		<script>
+			const content = [
+				[
+					{ "id": "70273997", "title": "The One Where Monica Gets a Roommate (Pilot)" },
+					{ "id": "70273998", "title": "The One with the Sonogram at the End" },
+					{ "id": "70273999", "title": "The One with the Thumb" },
+					{ "id": "70274000", "title": "The One with George Stephanopoulos" },
+					{ "id": "70274001", "title": "The One with the East German Laundry Detergent" },
+					{ "id": "70274002", "title": "The One with the Butt" },
+					{ "id": "70274003", "title": "The One with the Blackout" },
+					{ "id": "70274004", "title": "The One Where Nana Dies Twice" },
+					{ "id": "70274005", "title": "The One Where Underdog Gets Away" },
+					{ "id": "70274006", "title": "The One with the Monkey" },
+					{ "id": "70274007", "title": "The One with Mrs. Bing" },
+					{ "id": "70274008", "title": "The One with the Dozen Lasagnas" },
+					{ "id": "70274009", "title": "The One with the Boobies" },
+					{ "id": "70274010", "title": "The One with the Candy Hearts" },
+					{ "id": "70274011", "title": "The One with the Stoned Guy" },
+					{ "id": "70274012", "title": "The One with the Two Parts: Part 1" },
+					{ "id": "70274013", "title": "The One with the Two Parts: Part 2" },
+					{ "id": "70274014", "title": "The One with All the Poker" },
+					{ "id": "70274015", "title": "The One Where the Monkey Gets Away" },
+					{ "id": "70274016", "title": "The One with the Evil Orthodontist" },
+					{ "id": "70274017", "title": "The One with the Fake Monica" },
+					{ "id": "70274018", "title": "The One with the Ick Factor" },
+					{ "id": "70274019", "title": "The One with the Birth" },
+					{ "id": "70274020", "title": "The One Where Rachel Finds Out" }
+				],
+				[
+					{ "id": "70274021", "title": "The One with Ross's New Girlfriend" },
+					{ "id": "70274022", "title": "The One with the Breast Milk" },
+					{ "id": "70274023", "title": "The One Where Heckles Dies" },
+					{ "id": "70274024", "title": "The One with Phoebe's Husband" },
+					{ "id": "70274025", "title": "The One with Five Steaks and an Eggplant" },
+					{ "id": "70274026", "title": "The One with the Baby on the Bus" },
+					{ "id": "70274027", "title": "The One Where Ross Finds Out" },
+					{ "id": "70274028", "title": "The One with the List" },
+					{ "id": "70274029", "title": "The One with Phoebe's Dad" },
+					{ "id": "70274030", "title": "The One with Russ" },
+					{ "id": "70274031", "title": "The One with the Lesbian Wedding" },
+					{ "id": "70274032", "title": "The One After the Super Bowl: Part 1" },
+					{ "id": "70274033", "title": "The One After the Super Bowl: Part 2" },
+					{ "id": "70274034", "title": "The One with the Prom Video" },
+					{ "id": "70274035", "title": "The One Where Ross and Rachel...You Know" },
+					{ "id": "70274036", "title": "The One Where Joey Moves Out" },
+					{ "id": "70274037", "title": "The One Where Eddie Moves In" },
+					{ "id": "70274038", "title": "The One Where Dr. Ramoray Dies" },
+					{ "id": "70274039", "title": "The One Where Eddie Won't Go" },
+					{ "id": "70274040", "title": "The One Where Old Yeller Dies" },
+					{ "id": "70274041", "title": "The One with the Bullies" },
+					{ "id": "70274042", "title": "The One with the Two Parties" },
+					{ "id": "70274043", "title": "The One with the Chicken Pox" },
+					{ "id": "70274044", "title": "The One with Barry and Mindy's Wedding" }
+				],
+				[
+					{ "id": "70274045", "title": "The One with the Princess Leia Fantasy" },
+					{ "id": "70274046", "title": "The One Where No One's Ready" },
+					{ "id": "70274047", "title": "The One with the Jam" },
+					{ "id": "70274048", "title": "The One with the Metaphorical Tunnel" },
+					{ "id": "70274049", "title": "The One with Frank Jr" },
+					{ "id": "70274050", "title": "The One with the Flashback" },
+					{ "id": "70274051", "title": "The One with the Race Car Bed" },
+					{ "id": "70274052", "title": "The One with the Giant Poking Device" },
+					{ "id": "70274053", "title": "The One with the Football" },
+					{ "id": "70274054", "title": "The One Where Rachel Quits" },
+					{ "id": "70274055", "title": "The One Where Chandler Can't Remember Which Sister" },
+					{ "id": "70274056", "title": "The One with All the Jealousy" },
+					{ "id": "70274057", "title": "The One Where Monica & Richard Are Just Friends" },
+					{ "id": "70274058", "title": "The One with Phoebe's Ex-Partner" },
+					{ "id": "70274059", "title": "The One Where Ross & Rachel Take a Break" },
+					{ "id": "70274060", "title": "The One The Morning After" },
+					{ "id": "70274061", "title": "The One Without the Ski Trip" },
+					{ "id": "70274062", "title": "The One with the Hypnosis Tape" },
+					{ "id": "70274063", "title": "The One with the Tiny T-Shirt" },
+					{ "id": "70274064", "title": "The One with the Dollhouse" },
+					{ "id": "70274065", "title": "The One with a Chick. And a Duck" },
+					{ "id": "70274066", "title": "The One with the Screamer" },
+					{ "id": "70274067", "title": "The One with Ross's Thing" },
+					{ "id": "70274068", "title": "The One with the Ultimate Fighting Champion" },
+					{ "id": "70274069", "title": "The One at the Beach" }
+				],
+				[
+					{ "id": "70274070", "title": "The One with the Jellyfish" },
+					{ "id": "70274071", "title": "The One with the Cat" },
+					{ "id": "70274072", "title": "The One with the 'Cuffs" },
+					{ "id": "70274073", "title": "The One with the Ballroom Dancing" },
+					{ "id": "70274074", "title": "The One with Joey's New Girlfriend" },
+					{ "id": "70274075", "title": "The One with the Dirty Girl" },
+					{ "id": "70274076", "title": "The One Where Chandler Crosses the Line" },
+					{ "id": "70274077", "title": "The One with Chandler in a Box" },
+					{ "id": "70274078", "title": "The One Where They're Going to Party" },
+					{ "id": "70274079", "title": "The One with the Girl from Poughkeepsie" },
+					{ "id": "70274080", "title": "The One with Phoebe's Uterus" },
+					{ "id": "70274081", "title": "The One with the Embryos" },
+					{ "id": "70274082", "title": "The One with Rachel's Crush" },
+					{ "id": "70274083", "title": "The One with Joey's Dirty Day" },
+					{ "id": "70274084", "title": "The One with All the Rugby" },
+					{ "id": "70274085", "title": "The One with the Fake Party" },
+					{ "id": "70274086", "title": "The One with the Free Porn" },
+					{ "id": "70274087", "title": "The One with Rachel's New Dress" },
+					{ "id": "70274088", "title": "The One with All the Haste" },
+					{ "id": "70274089", "title": "The One with the Wedding Dresses" },
+					{ "id": "70274090", "title": "The One with the Invitation" },
+					{ "id": "70274091", "title": "The One with the Worst Best Man Ever" },
+					{ "id": "70274092", "title": "The One with Ross's Wedding: Part 1" },
+					{ "id": "70274093", "title": "The One with Ross's Wedding: Part 2" }
+				],
+				[
+					{ "id": "70274094", "title": "The One After Ross Says Rachel" },
+					{ "id": "70274095", "title": "The One with All the Kissing" },
+					{ "id": "70274096", "title": "The One Hundredth" },
+					{ "id": "70274097", "title": "The One Where Phoebe Hates PBS" },
+					{ "id": "70274098", "title": "The One with the Kips" },
+					{ "id": "70274099", "title": "The One with the Yeti" },
+					{ "id": "70274100", "title": "The One Where Ross Moves In" },
+					{ "id": "70274101", "title": "The One with All the Thanksgivings" },
+					{ "id": "70274102", "title": "The One with Ross's Sandwich" },
+					{ "id": "70274103", "title": "The One with the Inappropriate Sister" },
+					{ "id": "70274104", "title": "The One with All the Resolutions" },
+					{ "id": "70274105", "title": "The One with Chandler's Work Laugh" },
+					{ "id": "70274106", "title": "The One with Joey's Bag" },
+					{ "id": "70274107", "title": "The One Where Everybody Finds Out" },
+					{ "id": "70274108", "title": "The One with the Girl Who Hits Joey" },
+					{ "id": "70274109", "title": "The One with the Cop" },
+					{ "id": "70274110", "title": "The One with Rachel's Inadvertent Kiss" },
+					{ "id": "70274111", "title": "The One Where Rachel Smokes" },
+					{ "id": "70274112", "title": "The One Where Ross Can't Flirt" },
+					{ "id": "70274113", "title": "The One with the Ride-Along" },
+					{ "id": "70274114", "title": "The One with the Ball" },
+					{ "id": "70274115", "title": "The One with Joey's Big Break" },
+					{ "id": "70274116", "title": "The One in Vegas: Part 1" },
+					{ "id": "70274117", "title": "The One in Vegas: Part 2" }
+				],
+				[
+					{ "id": "70274118", "title": "The One After Vegas" },
+					{ "id": "70274119", "title": "The One Where Ross Hugs Rachel" },
+					{ "id": "70274120", "title": "The One with Ross's Denial" },
+					{ "id": "70274121", "title": "The One Where Joey Loses His Insurance" },
+					{ "id": "70274122", "title": "The One with Joey's Porsche" },
+					{ "id": "70274123", "title": "The One on the Last Night" },
+					{ "id": "70274124", "title": "The One Where Phoebe Runs" },
+					{ "id": "70274125", "title": "The One with Ross's Teeth" },
+					{ "id": "70274126", "title": "The One Where Ross Got High" },
+					{ "id": "70274127", "title": "The One with the Routine" },
+					{ "id": "70274128", "title": "The One with the Apothecary Table" },
+					{ "id": "70274129", "title": "The One with the Joke" },
+					{ "id": "70274130", "title": "The One with Rachel's Sister" },
+					{ "id": "70274131", "title": "The One Where Chandler Can't Cry" },
+					{ "id": "70274132", "title": "The One That Could Have Been: Part 1" },
+					{ "id": "70274133", "title": "The One That Could Have Been: Part 2" },
+					{ "id": "70274134", "title": "The One with Unagi" },
+					{ "id": "70274135", "title": "The One Where Ross Dates a Student" },
+					{ "id": "70274136", "title": "The One with Joey's Fridge" },
+					{ "id": "70274137", "title": "The One with Mac and C.H.E.E.S.E" },
+					{ "id": "70274138", "title": "The One Where Ross Meets Elizabeth's Dad" },
+					{ "id": "70274139", "title": "The One Where Paul's the Man" },
+					{ "id": "70274140", "title": "The One with the Ring" },
+					{ "id": "70274141", "title": "The One with the Proposal: Part 1" },
+					{ "id": "70274142", "title": "The One with the Proposal: Part 2" }
+				],
+				[
+					{ "id": "70274143", "title": "The One with Monica's Thunder" },
+					{ "id": "70274144", "title": "The One with Rachel's Book" },
+					{ "id": "70274145", "title": "The One with Phoebe's Cookies" },
+					{ "id": "70274146", "title": "The One with Rachel's Assistant" },
+					{ "id": "70274147", "title": "The One with the Engagement Picture" },
+					{ "id": "70274148", "title": "The One with the Nap Partners" },
+					{ "id": "70274149", "title": "The One with Ross' Library Book" },
+					{ "id": "70274150", "title": "The One Where Chandler Doesn't Like Dogs" },
+					{ "id": "70274151", "title": "The One with All the Candy" },
+					{ "id": "70274152", "title": "The One with the Holiday Armadillo" },
+					{ "id": "70274153", "title": "The One with All the Cheesecakes" },
+					{ "id": "70274154", "title": "The One Where They're Up All Night" },
+					{ "id": "70274155", "title": "The One Where Rosita Dies" },
+					{ "id": "70274156", "title": "The One Where They All Turn Thirty" },
+					{ "id": "70274157", "title": "The One with Joey's New Brain" },
+					{ "id": "70274158", "title": "The One with the Truth About London" },
+					{ "id": "70274159", "title": "The One with the Cheap Wedding Dress" },
+					{ "id": "70274160", "title": "The One with Joey's Award" },
+					{ "id": "70274161", "title": "The One with Ross and Monica's Cousin" },
+					{ "id": "70274162", "title": "The One with Rachel's Big Kiss" },
+					{ "id": "70274163", "title": "The One with the Vows" },
+					{ "id": "70274164", "title": "The One with Chandler's Dad" },
+					{ "id": "70274165", "title": "The One with Chandler and Monica's Wedding: Part 1" },
+					{ "id": "70274166", "title": "The One with Chandler and Monica's Wedding: Part 2" }
+				],
+				[
+					{ "id": "70274167", "title": "The One After I Do" },
+					{ "id": "70274168", "title": "The One with the Red Sweater" },
+					{ "id": "70274169", "title": "The One Where Rachel Tells ..." },
+					{ "id": "70274170", "title": "The One with the Videotape" },
+					{ "id": "70274171", "title": "The One with Rachel's Date" },
+					{ "id": "70274172", "title": "The One with the Halloween Party" },
+					{ "id": "70274173", "title": "The One with the Stain" },
+					{ "id": "70274174", "title": "The One with the Stripper" },
+					{ "id": "70274175", "title": "The One with the Rumor" },
+					{ "id": "70274176", "title": "The One with Monica's Boots" },
+					{ "id": "70274177", "title": "The One with the Creepy Holiday Card" },
+					{ "id": "70274178", "title": "The One Where Joey Dates Rachel" },
+					{ "id": "70274179", "title": "The One Where Chandler Takes a Bath" },
+					{ "id": "70274180", "title": "The One with the Secret Closet" },
+					{ "id": "70274181", "title": "The One with the Birthing Video" },
+					{ "id": "70274182", "title": "The One Where Joey Tells Rachel" },
+					{ "id": "70274183", "title": "The One with the Tea Leaves" },
+					{ "id": "70274184", "title": "The One in Massapequa" },
+					{ "id": "70274185", "title": "The One with Joey's Interview" },
+					{ "id": "70274186", "title": "The One with the Baby Shower" },
+					{ "id": "70274187", "title": "The One with the Cooking Class" },
+					{ "id": "70274188", "title": "The One Where Rachel Is Late" },
+					{ "id": "70274189", "title": "The One Where Rachel Has a Baby: Part 1" },
+					{ "id": "70274190", "title": "The One Where Rachel Has a Baby: Part 2" }
+				],
+				[
+					{ "id": "70274191", "title": "The One Where No One Proposes" },
+					{ "id": "70274192", "title": "The One Where Emma Cries" },
+					{ "id": "70274193", "title": "The One with the Pediatrician" },
+					{ "id": "70274194", "title": "The One with the Sharks" },
+					{ "id": "70274195", "title": "The One with Phoebe's Birthday Dinner" },
+					{ "id": "70274196", "title": "The One with the Male Nanny" },
+					{ "id": "70274197", "title": "The One with Ross' Inappropriate Song" },
+					{ "id": "70274198", "title": "The One with Rachel's Other Sister" },
+					{ "id": "70274199", "title": "The One with Rachel's Phone Number" },
+					{ "id": "70274200", "title": "The One with Christmas in Tulsa" },
+					{ "id": "70274201", "title": "The One Where Rachel Goes Back to Work" },
+					{ "id": "70274202", "title": "The One with Phoebe's Rats" },
+					{ "id": "70274203", "title": "The One Where Monica Sings" },
+					{ "id": "70274204", "title": "The One with the Blind Dates" },
+					{ "id": "70274205", "title": "The One with the Mugging" },
+					{ "id": "70274206", "title": "The One with the Boob Job" },
+					{ "id": "70274207", "title": "The One with the Memorial Service" },
+					{ "id": "70274208", "title": "The One with the Lottery" },
+					{ "id": "70274209", "title": "The One with Rachel's Dream" },
+					{ "id": "70274210", "title": "The One with the Soap Opera Party" },
+					{ "id": "70274211", "title": "The One with the Fertility Test" },
+					{ "id": "70274212", "title": "The One with the Donor" },
+					{ "id": "80057887", "title": "The One in Barbados" }
+				],
+				[
+					{ "id": "70274215", "title": "The One After Joey and Rachel Kiss" },
+					{ "id": "70274216", "title": "The One Where Ross Is Fine" },
+					{ "id": "70274217", "title": "The One with Ross's Tan" },
+					{ "id": "70274218", "title": "The One with the Cake" },
+					{ "id": "70274219", "title": "The One Where Rachel's Sister Babysits" },
+					{ "id": "70274220", "title": "The One with Ross's Grant" },
+					{ "id": "70274221", "title": "The One with The Home Study" },
+					{ "id": "70274222", "title": "The One with the Late Thanksgiving" },
+					{ "id": "70274223", "title": "The One with the Birth Mother" },
+					{ "id": "70274224", "title": "The One Where Chandler Gets Caught" },
+					{ "id": "70274225", "title": "The One Where the Stripper Cries" },
+					{ "id": "70274226", "title": "The One with Phoebe's Wedding" },
+					{ "id": "70274227", "title": "The One Where Joey Speaks French" },
+					{ "id": "70274228", "title": "The One with Princess Consuela" },
+					{ "id": "70274229", "title": "The One Where Estelle Dies" },
+					{ "id": "70274230", "title": "The One with Rachel's Going Away Party" },
+					{ "id": "70274231", "title": "The Last One: Part 1 & Part 2" }
+				]
+			]
+
+			const season = Math.floor(Math.random() * content.length)
+			const episode = Math.floor(Math.random() * content[season].length)
+			const ep = content[season][episode]
+
+			const episodeEl = document.getElementById("episode")
+			episodeEl.innerText = `S${season+1} E${episode+1}`
+
+			const linkEl = document.getElementById("link")
+			linkEl.setAttribute("href", `https://www.netflix.com/watch/${ep.id}`)
+			linkEl.innerText = ep.title
+		</script>
+	</body>
+</html>
