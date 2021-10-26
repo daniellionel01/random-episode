@@ -1,3 +1,3 @@
 # Friends Netflix Episode Shuffler
 
-Github Pages: https://kurzai.github.io/friends-netflix-episode-shuffler/
+Github Pages: https://daniellionel01.github.io/friends-netflix-episode-shuffler/
