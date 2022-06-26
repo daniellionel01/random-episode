@@ -1,0 +1,26 @@
+{
+  "name": "random-episode",
+  "version": "1.0.0",
+  "description": "Github Pages: [https://daniellionel01.github.io/random-episode/](https://daniellionel01.github.io/random-episode)",
+  "main": "friends.js",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/daniellionel01/random-episode.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/daniellionel01/random-episode/issues"
+  },
+  "homepage": "https://daniellionel01.github.io/random-episode",
+  "dependencies": {
+    "astro": "^1.0.0-beta.56"
+  }
+}

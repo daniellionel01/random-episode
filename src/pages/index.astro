@@ -1,0 +1,32 @@
+---
+import Friends from "../components/Friends.astro"
+import B99 from "../components/B99.astro"
+---
+
+<html>
+	<head>
+		<title>random episode</title>
+		<link rel="icon" href="/logo.jpeg">
+    <style is:global>
+      body {
+        margin: 1em auto;
+        max-width: 40em;
+        padding: 0.62em;
+        font: 1.2em/1.62 sans-serif;
+      }
+      h1,h2,h3 {
+        line-height: 1.2;
+      }
+      @media print {
+        body {
+          max-width:none;
+        }
+      }
+    </style>
+	</head>
+	<body>
+    <Friends />
+    <hr />
+    <B99 />
+	</body>
+</html>

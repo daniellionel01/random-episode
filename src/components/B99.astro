@@ -1,0 +1,16 @@
+---
+import episodes from "../data/b99.json"
+
+const season = Math.floor(Math.random() * episodes.length)
+const episode = Math.floor(Math.random() * episodes[season].length)
+const ep = episodes[season][episode]
+---
+
+<div>
+  <h1><u>Brooklyn 99</u></h1>
+  <div id="episode">S{season+1} E{episode+1}</div>
+  <a href={`https://www.netflix.com/watch/${ep.id}`} target="_blank" id="link">
+    {ep.title}
+  </a>
+</div>
+
