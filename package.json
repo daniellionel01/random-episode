@@ -7,7 +7,10 @@
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -19,8 +22,11 @@
   "bugs": {
     "url": "https://github.com/daniellionel01/random-episode/issues"
   },
-  "homepage": "https://daniellionel01.github.io/random-episode",
+  "homepage": "https://daniellionel01.github.io/random-episode/",
   "dependencies": {
     "astro": "^1.0.0-beta.56"
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }
