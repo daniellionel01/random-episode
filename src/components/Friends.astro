@@ -1,8 +1,12 @@
 ---
 import episodes from "../data/friends.json"
 
-const season = Math.floor(Math.random() * episodes.length)
-const episode = Math.floor(Math.random() * episodes[season].length)
+const index = Date.now() % episodes.length
+const season = Math.floor(index)
+
+const index2 = Date.now() % episodes[season].length
+const episode = Math.floor(index2)
+
 const ep = episodes[season][episode]
 ---
 
