@@ -8,7 +8,6 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
@@ -27,6 +26,9 @@
     "astro": "^1.0.0-beta.56"
   },
   "devDependencies": {
-    "gh-pages": "^4.0.0"
+    "@astrojs/preact": "^0.3.2",
+    "@astrojs/renderer-preact": "^0.5.0",
+    "gh-pages": "^4.0.0",
+    "preact": "^10.9.0"
   }
 }
