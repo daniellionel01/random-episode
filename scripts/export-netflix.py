@@ -1,3 +1,5 @@
+#!/bin/python3
+
 from bs4 import BeautifulSoup
 import pprint
 import json
