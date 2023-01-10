@@ -1,6 +1,6 @@
 # Random Episode from various shows
 
-Github Pages: [https://daniellionel01.github.io/random-episode/](https://daniellionel01.github.io/random-episode)
+Live at: [https://random-episode-iota.vercel.app/](https://random-episode-iota.vercel.app/)
 
 ## scripts
 ### export netflix
